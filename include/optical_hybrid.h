@@ -16,8 +16,6 @@ class OpticalHybrid : public Block {
 
 public:
 
-	t_complex div = 1 / 2;
-	t_complex unit = 1;
 	complex<t_real> imaginary=sqrt(-1);
 	array <complex<double>, 8> matrix = { { 1 / 2, 1 / 2, 1 / 2, -1 / 2, 1 / 2, sqrt(-1) / 2, 1 / 2, -sqrt(-1) / 2 } };
 	

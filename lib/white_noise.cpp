@@ -3,6 +3,7 @@
 #include <random>
 #include <fstream>
 #include <iostream>
+#include <chrono>
 
 #include "netxpto.h"
 #include "white_noise.h"
@@ -34,6 +35,8 @@ bool WhiteNoise::runBlock(void){
 	case RealValue:
 	{
 					  normal_distribution<double> distributionNoise(0, 1);
+					  unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+					  //generator1.seed(seed);
 					  for (int i = 0; i < process; i++)
 					  {
 						  t_real output = 0;

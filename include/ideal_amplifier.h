@@ -8,7 +8,7 @@
 // Simulates an ideal Amplifier
 class IdealAmplifier : public Block {
 
-	double gain{ 1e4 };
+	double gain{ 1e6 };
 
 public:
 

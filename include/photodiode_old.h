@@ -35,10 +35,6 @@ public:
 
 	void useNoise(bool sNoise) { shotNoise = sNoise; }
 
-	void useThermalNoise(bool sNoise) { thermalNoise = sNoise; }
-	void setThermalNoiseAmplitude(double amplitude) { thermalNoiseAmplitude = amplitude; }
-	double const getThermalNoiseAmplitude(void) { return thermalNoiseAmplitude; };
-
 private:
 };
 

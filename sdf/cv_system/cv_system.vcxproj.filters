@@ -19,9 +19,6 @@
     <ClCompile Include="cv_system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\lib\discarder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\lib\discrete_to_continuous_time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -52,9 +49,6 @@
     <ClCompile Include="..\..\lib\optical_hybrid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\lib\photodiode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\lib\pulse_shaper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -76,6 +70,9 @@
     <ClCompile Include="..\..\lib\white_noise.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\lib\photodiode_old.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\add.h">
@@ -91,9 +88,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\bit_error_rate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\discarder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\discrete_to_continuous_time.h">
@@ -126,9 +120,6 @@
     <ClInclude Include="..\..\include\optical_hybrid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\photodiode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\pulse_shaper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -148,6 +139,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\white_noise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\photodiode_old.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

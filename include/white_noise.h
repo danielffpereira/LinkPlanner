@@ -9,17 +9,15 @@
 class WhiteNoise : public Block {
 
 	bool firsTime{ true };
+	double spectralDensity = 0;
 
 public:
-
-	double spectralDensity = 1e-4;
-	
+		
 	default_random_engine generator1;
 	default_random_engine generator2;
 	default_random_engine generator3;
 	default_random_engine generator4;
-
-
+	
 	WhiteNoise() {};
 	WhiteNoise(vector<Signal *> &InputSig, vector<Signal *> &OutputSig) :Block(InputSig, OutputSig){};
 	

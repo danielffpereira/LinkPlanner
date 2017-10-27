@@ -76,6 +76,8 @@ public:
 	void setSeeBeginningOfImpulseResponse(bool sBegginingOfImpulseResponse) { B4.setSeeBeginningOfImpulseResponse(sBegginingOfImpulseResponse); };
 	double const getSeeBeginningOfImpulseResponse(void) { return B4.getSeeBeginningOfImpulseResponse(); };
 
+	void setNoiseSeed(double sd) { B2.generator1.seed(sd); };
+
 };
 
 

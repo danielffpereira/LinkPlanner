@@ -1,12 +1,10 @@
 # include "netxpto.h"
 
-# include "i_homodyne_receiver.h"
 # include "sink.h"
 # include "local_oscillator.h"
 # include "balanced_beam_splitter.h"
-# include "photodiode.h"
+# include "photodiode_old.h"
 # include "ti_amplifier.h"
-# include "optical_hybrid.h"
 
 int main(){
 
@@ -15,45 +13,20 @@ int main(){
 	// #####################################################################################################
 
 	int numberOfBitsReceived(-1);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Romil
 	
-	// [DIA] Original
-	//int numberOfBitsGenerated(10000);
-	// [DIA] Experiencia
-	int numberOfBitsGenerated(500);
-
+	double bitPeriod = 1.0 / 17e9;
+	int numberOfBitsGenerated(100000);
 	int samplesPerSymbol(1);
-	double bitPeriod = 1.0 / 5e6;
-	
-	// [DIA] Original
-	//double localOscillatorPower_dBm1 = -20;
-	// [DIA] Experiencia (Potencia de 1 fotão por sinal)
-	double localOscillatorPower_dBm1 = -91.933;
-	//double localOscillatorPower_dBm1 = -20;
-	
-<<<<<<< HEAD
-=======
-	int numberOfBitsGenerated(10000);
-	int samplesPerSymbol(1);
-	double bitPeriod = 1.0 / 5e6;
-	double localOscillatorPower_dBm1 = -20;
->>>>>>> 526292907dd2ff7d6ea618152856721b6b80e5dd
-=======
->>>>>>> Romil
+	double localOscillatorPower_dBm1 = -9;
 	double localOscillatorPower2 = 0; // Vacuum state
 	double localOscillatorPhase1 = 0;
 	double localOscillatorPhase2 = 0;
 	array<t_complex, 4> transferMatrix = { { 1 / sqrt(2), 1 / sqrt(2), 1 / sqrt(2), -1 / sqrt(2)} };
 	double responsivity = 1;
-	double amplification = 1e6;
-	double electricalNoiseAmplitude = 4.7626e-06; // Thermal noise taken from experimental results. 
+	double amplification = sqrt(5e6)/2;
+	double electricalNoiseAmplitude = 2.18e-05; // Thermal noise taken from experimental results. 
 	int bufferLength = 512*2;
 	bool shotNoise(true);
-
-	double SNR = 0;
 		
 	// #####################################################################################################
 	// ########################### Signals Declaration and Inicialization ##################################
@@ -86,37 +59,21 @@ int main(){
 	B1.setPhase(localOscillatorPhase1);
 	B1.setSamplingPeriod(bitPeriod / samplesPerSymbol);
 	B1.setSymbolPeriod(bitPeriod);
-	B1.setSignaltoNoiseRatio(SNR);
 
 	LocalOscillator B2{ vector<Signal*> { }, vector<Signal*> { &S2 } };
 	B2.setOpticalPower(localOscillatorPower2);
 	B2.setPhase(localOscillatorPhase2);
 	B2.setSamplingPeriod(bitPeriod / samplesPerSymbol);
 	B2.setSymbolPeriod(bitPeriod);
-	B2.setSignaltoNoiseRatio(SNR);
 
 	BalancedBeamSplitter B3{ vector<Signal*> {&S1, &S2}, vector<Signal*> {&S3, &S4 } };
 	B3.setTransferMatrix(transferMatrix);
 
 	Photodiode B4{ vector<Signal*> {&S3, &S4}, vector<Signal*> {&S5} };
 	B4.useNoise(true);
+	B4.useThermalNoise(false);
 	B4.setResponsivity(responsivity);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Romil
-	// [DIA] debug
-	Sink Bx{ vector<Signal*> {&S5}, vector<Signal*> {} };
-	Bx.setNumberOfSamples(samplesPerSymbol*numberOfBitsGenerated);
-	Bx.setDisplayNumberOfSamples(true);
-	// end debug
-
-<<<<<<< HEAD
-=======
->>>>>>> 526292907dd2ff7d6ea618152856721b6b80e5dd
-=======
->>>>>>> Romil
 	TI_Amplifier B5{ vector<Signal*> {&S5}, vector<Signal*> {&S6} };
 	B5.setGain(amplification);
 	B5.setElectricalNoiseSpectralDensity(electricalNoiseAmplitude);
@@ -134,15 +91,7 @@ int main(){
 	// ########################### System Declaration and Inicialization ###################################
 	// #####################################################################################################
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-	System MainSystem{ vector<Block*> { &B1, &B2, &B3, &B4, &Bx } };
-=======
 	System MainSystem{ vector<Block*> { &B1, &B2, &B3, &B4, &B5, &B6 } };
->>>>>>> 526292907dd2ff7d6ea618152856721b6b80e5dd
-=======
-	System MainSystem{ vector<Block*> { &B1, &B2, &B3, &B4, &Bx } };
->>>>>>> Romil
 
 	// #####################################################################################################
 	// #################################### System Run #####################################################

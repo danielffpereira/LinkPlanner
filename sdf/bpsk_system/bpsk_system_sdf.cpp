@@ -17,7 +17,7 @@ int main(){
 	// #####################################################################################################
 
 	int numberOfBitsReceived(-1);
-	int numberOfBitsGenerated(40000);
+	int numberOfBitsGenerated(300);
 	int samplesPerSymbol(16);
 	int pLength = 5;
 	double bitPeriod = 20e-12;

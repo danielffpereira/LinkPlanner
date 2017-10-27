@@ -73,7 +73,6 @@
     <ClCompile Include="..\..\lib\binary_source.cpp" />
     <ClCompile Include="..\..\lib\bit_decider.cpp" />
     <ClCompile Include="..\..\lib\bit_error_rate.cpp" />
-    <ClCompile Include="..\..\lib\discarder.cpp" />
     <ClCompile Include="..\..\lib\discrete_to_continuous_time.cpp" />
     <ClCompile Include="..\..\lib\electrical_filter.cpp" />
     <ClCompile Include="..\..\lib\ideal_amplifier.cpp" />
@@ -84,7 +83,7 @@
     <ClCompile Include="..\..\lib\m_qam_transmitter.cpp" />
     <ClCompile Include="..\..\lib\netxpto.cpp" />
     <ClCompile Include="..\..\lib\optical_hybrid.cpp" />
-    <ClCompile Include="..\..\lib\photodiode.cpp" />
+    <ClCompile Include="..\..\lib\photodiode_old.cpp" />
     <ClCompile Include="..\..\lib\pulse_shaper.cpp" />
     <ClCompile Include="..\..\lib\sampler.cpp" />
     <ClCompile Include="..\..\lib\sink.cpp" />
@@ -100,7 +99,6 @@
     <ClInclude Include="..\..\include\binary_source.h" />
     <ClInclude Include="..\..\include\bit_decider.h" />
     <ClInclude Include="..\..\include\bit_error_rate.h" />
-    <ClInclude Include="..\..\include\discarder.h" />
     <ClInclude Include="..\..\include\discrete_to_continuous_time.h" />
     <ClInclude Include="..\..\include\electrical_filter.h" />
     <ClInclude Include="..\..\include\ideal_amplifier.h" />
@@ -111,7 +109,7 @@
     <ClInclude Include="..\..\include\m_qam_transmitter.h" />
     <ClInclude Include="..\..\include\netxpto.h" />
     <ClInclude Include="..\..\include\optical_hybrid.h" />
-    <ClInclude Include="..\..\include\photodiode.h" />
+    <ClInclude Include="..\..\include\photodiode_old.h" />
     <ClInclude Include="..\..\include\pulse_shaper.h" />
     <ClInclude Include="..\..\include\sampler.h" />
     <ClInclude Include="..\..\include\sink.h" />

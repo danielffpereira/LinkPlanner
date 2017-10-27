@@ -32,7 +32,8 @@ bool Photodiode::runBlock(void) {
 
 	if (process == 0) return false;
 
-	normal_distribution<double> distribution(0, 1);
+	normal_distribution<double> distribution1(0, 1);
+	normal_distribution<double> distribution2(0, 1);
 	double noiseAmp1;
 	double noiseAmp2;
 
@@ -42,13 +43,13 @@ bool Photodiode::runBlock(void) {
 
 
 
-	generatorAmp1.seed(seed);
-	generatorAmp2.seed(seed);
+	//generatorAmp1.seed(seed);
+	//generatorAmp2.seed(seed);
 
 	for (int i = 0; i < process; i++) {
 
-		noiseAmp1 = distribution(generatorAmp1);
-		noiseAmp2 = distribution(generatorAmp2);
+		noiseAmp1 = distribution1(generatorAmp1);
+		noiseAmp2 = distribution1(generatorAmp1);
 
 
 		t_complex input1;
@@ -62,12 +63,6 @@ bool Photodiode::runBlock(void) {
 
 		t_real current1 = responsivity*power1;
 		t_real current2 = responsivity*power2;
-		
-		// Implementation of thermal noise
-		if (thermalNoise) {
-			current1 += thermalNoiseAmplitude * distribution(generatorAmp1);
-			current2 += thermalNoiseAmplitude * distribution(generatorAmp2);
-		}
 
 		// Current difference calculation.	
 		t_real out = current1 - current2;

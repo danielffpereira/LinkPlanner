@@ -5,22 +5,16 @@
 # include <vector>
 
 // Adjusts the starting point of the discretized signal
-class discarder : public Block {
+class Discarder : public Block {
 public:
-	discarder(vector<Signal *> &InputSig, vector<Signal *> &OutputSig);
+	Discarder(vector<Signal *> &InputSig, vector<Signal *> &OutputSig) :Block(InputSig, OutputSig) {};
+	
+	void initialize(void);
 	bool runBlock(void);
-
-	//int index = 0;
-
-//	int setindex(int index);
-
-
 
 private:
 
-
-
-
+	int aux = 0;
 
 };
 
