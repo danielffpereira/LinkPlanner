@@ -109,7 +109,7 @@ int main() {
 	MQamTransmitter B1{ vector<Signal*> {}, vector<Signal*> {&S1} };
 	B1.setNumberOfBits(numberOfBitsGenerated);
 	B1.setOutputOpticalPower(signalOutputPower);
-	B1.setMode(PseudoRandom);
+	B1.setMode(Random);
 	B1.setBitPeriod(bitPeriod);
 	B1.setPatternLength(pLength);
 	B1.setIqAmplitudes(iqAmplitudeValues);
