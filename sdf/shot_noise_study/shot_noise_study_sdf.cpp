@@ -14,17 +14,17 @@ int main(){
 
 	int numberOfBitsReceived(-1);
 	
-	double bitPeriod = 1.0 / 17e9;
+	double bitPeriod = 20e-12;
+	int samplesPerSymbol(16);
 	int numberOfBitsGenerated(100000);
-	int samplesPerSymbol(1);
-	double localOscillatorPower_dBm1 = -9;
+	double localOscillatorPower_dBm1 = 5;
 	double localOscillatorPower2 = 0; // Vacuum state
 	double localOscillatorPhase1 = 0;
 	double localOscillatorPhase2 = 0;
 	array<t_complex, 4> transferMatrix = { { 1 / sqrt(2), 1 / sqrt(2), 1 / sqrt(2), -1 / sqrt(2)} };
 	double responsivity = 1;
-	double amplification = sqrt(5e6)/2;
-	double electricalNoiseAmplitude = 2.18e-05; // Thermal noise taken from experimental results. 
+	double amplification = 1e6;
+	double electricalNoiseAmplitude = 102.8412*.01565157; // Thermal noise taken from experimental results. 
 	int bufferLength = 512*2;
 	bool shotNoise(true);
 		
@@ -71,7 +71,6 @@ int main(){
 
 	Photodiode B4{ vector<Signal*> {&S3, &S4}, vector<Signal*> {&S5} };
 	B4.useNoise(true);
-	B4.useThermalNoise(false);
 	B4.setResponsivity(responsivity);
 
 	TI_Amplifier B5{ vector<Signal*> {&S5}, vector<Signal*> {&S6} };
@@ -82,6 +81,7 @@ int main(){
 	B5.setImpulseResponseLength(16);
 	B5.setRollOffFactor(0);
 	B5.usePassiveFilterMode(true);
+	B5.setElectricalNoiseSpectralDensity(electricalNoiseAmplitude);
 
 	Sink B6{ vector<Signal*> {&S6}, vector<Signal*> {} };
 	B6.setNumberOfSamples(samplesPerSymbol*numberOfBitsGenerated);

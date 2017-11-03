@@ -26,7 +26,7 @@ int main() {
 	int pLength = 0;
 	double bitPeriod = 20e-12;
 	double rollOffFactor = 0.3;
-	double d = 0;
+	double d = 26;
 	double T = pow(10,-0.02*d);
 
 	//double t = (T + 2.289) / 3.291; // Xi=0.01
