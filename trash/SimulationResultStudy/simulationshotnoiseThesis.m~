@@ -1,0 +1,24 @@
+clear all
+close all
+clc
+
+load physconst
+
+PdBm=-45:1:-10;
+PW=10.^((PdBm-30)/10);
+B=30e9;
+lambda=1550e-9;
+n=10.^(PdBm/10)*lambda/(1000*h*c*B);
+
+
+SNU=sqrt(h*c*n/(B*lambda)*B*h*c/lambda)*(10^6);
+
+
+Y=1.610+SNU.^2.*n;
+
+semilogy(PdBm,Y)
+
+x=[-45];
+y=[1.6076];
+hold on
+semilogy(x,y,'.k','MarkerSize',10)
